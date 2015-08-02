@@ -8,6 +8,7 @@ before_install:
 script: npm run-script gulp
 
 after_success:
+  - ssh-agent -s
   - ssh-add .travis/deploy_key.pem
   - cd public
   - git init
