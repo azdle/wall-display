@@ -1,12 +1,7 @@
+$ = require('zepto-browserify').$;
 var moment = require('moment');
 
-var timeDiv, dateDiv, weatherDiv;
-
-document.addEventListener("DOMContentLoaded", function(event) {
-	timeDiv = document.getElementById('time');
-	dateDiv = document.getElementById('date');
-	weatherDiv = document.getElementById('weather');
-
+$(document).on('ready', function(event) {
 	updateTime();
 	window.setInterval(updateTime, 1000);
 
@@ -19,20 +14,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 function updateTime(){
 	var d = new Date();
-	var dateStr = moment().format('HH:mm');
-	if (timeDiv.innerHTML != dateStr) {
-		timeDiv.innerHTML = dateStr;
+	var dateStr = moment().format('hh:mm');
+	if ($('#time').html() != dateStr) {
+		$('#time').html(dateStr);
 	}
 }
 
 function updateDate(){
 	var d = new Date();
 	var dateStr = moment().format('MMMM Do YYYY');
-	if (dateDiv.innerHTML != dateStr) {
-		dateDiv.innerHTML = dateStr;
+	if ($('#date').html() != dateStr) {
+		$('#date').html(dateStr);
 	}
 }
 
 function updateWeather(){
-	weatherDiv.innerHTML = "It Gonn' Rain!";
+	$('#weather').html("It Gonn' Rain!");
 }
