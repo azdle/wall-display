@@ -12,5 +12,5 @@ after_success:
   - cd public && git init
   - cd public && git add .
   - cd public && git commit -m "overwrite"
-  - cd public && git remote add deploy DEPLOY_REPO_URI_GOES_HERE
+  - cd public && git remote add deploy git@github.com:azdle/wall-display.git
   - cd public && git push --force deploy master:gh-pages
