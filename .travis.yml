@@ -12,6 +12,8 @@ after_success:
   - ssh-add .travis/deploy_key.pem
   - cd public
   - git init
+  - git config user.email "wall-display-deploy@theunlink.com"
+  - git config user.name "Deploy"
   - git add .
   - git commit -m "overwrite"
   - git remote add deploy git@github.com:azdle/wall-display.git
