@@ -4,7 +4,7 @@
   "description": "Wall display.",
   "main": "index.js",
   "scripts": {
-    "test": "gulp"
+    "gulp": "gulp"
   },
   "repository": {
     "type": "git",
