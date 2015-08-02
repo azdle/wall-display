@@ -1,0 +1,29 @@
+{
+  "name": "WallDisplay",
+  "version": "0.1.0",
+  "description": "Wall display.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/azdle/wall-display.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/azdle/wall-display/issues"
+  },
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-rename": "~1.2.2",
+    "gulp-concat": "~2.6.0",
+    "gulp-uglify": "~1.2.0",
+    "gulp-jshint": "~1.11.2",
+    "gulp-browserify": "~0.5.1"
+  },
+  "dependencies": {
+    "moment": "~2.10.6"
+  }
+}
