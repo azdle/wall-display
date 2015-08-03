@@ -29,5 +29,5 @@ function updateDate(){
 }
 
 function updateWeather(){
-	$('#weather').html("It Gonn' Rain!");
+	//$('#weather').html("It Gonn' Rain!");
 }
