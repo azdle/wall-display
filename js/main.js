@@ -34,6 +34,11 @@ function updateDate(){
 }
 
 function updateWeather(){
+	if (typeof(XMLHttpRequest) !== "function") {
+		weatherDiv.innerHTML = 'XHR Not Available';
+		return;
+	}
+
 	function reqListener () {
 		console.log(this.responseText);
 
