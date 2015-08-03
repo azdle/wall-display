@@ -1,0 +1,20 @@
+body {
+	width: 100%;
+	text-align: center;
+}
+
+#time {
+	font-size: 150pt;
+	display: block;
+}
+
+#date {
+	font-size: 40pt;
+	display: block;
+}
+
+#weather {
+	font-size: 40pt;
+	display: block;
+	padding-top: 1em;
+}
