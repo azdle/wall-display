@@ -12,3 +12,9 @@ body {
 	font-size: 40pt;
 	display: block;
 }
+
+#weather {
+	font-size: 40pt;
+	display: block;
+	padding-top: 1em;
+}

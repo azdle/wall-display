@@ -34,5 +34,21 @@ function updateDate(){
 }
 
 function updateWeather(){
-	//weatherDiv.innerHTML = "It Gonn' Rain!";
+	function reqListener () {
+		console.log(this.responseText);
+
+		var resp = JSON.parse(this.responseText);
+
+		weatherDiv.innerHTML =
+			resp.main.temp + ' °C'
+			+ ' - ' + resp.weather[0].main;
+	}
+
+	//var url = "http://api.openweathermap.org/data/2.5/forecast?q=minneapolis,us&units=metric";
+	var url = "http://api.openweathermap.org/data/2.5/weather?q=minneapolis,us&units=metric";
+
+	var oReq = new XMLHttpRequest();
+	oReq.addEventListener('load', reqListener);
+	oReq.open("get", url, true);
+	oReq.send();
 }
