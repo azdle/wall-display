@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	updateDate();
 	window.setInterval(updateDate, 10 * 1000);
 
-	updateWeather();
 	window.setInterval(updateWeather, 15 * 60 * 1000);
 });
 
@@ -34,8 +33,8 @@ function updateDate(){
 }
 
 function updateWeather(){
-	if (typeof(XMLHttpRequest) !== "function") {
-		weatherDiv.innerHTML = 'XHR Not Available';
+	if (typeof(XMLHttpRequest) !== "function" || window.location.protocol != "http:") {
+		location.reload();
 		return;
 	}
 
