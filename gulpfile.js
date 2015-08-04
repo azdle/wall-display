@@ -6,13 +6,13 @@ var rename = require('gulp-rename');
 var browserify = require('gulp-browserify');
 
 gulp.task('lint', function() {
-	return gulp.src('js/*.js')
+	return gulp.src('static/js/*.js')
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'));
 });
 
 gulp.task('js', function() {
-	return gulp.src('js/*.js')
+	return gulp.src('static/js/*.js')
 		.pipe(browserify())
 		.pipe(concat('app.js'))
 		.pipe(gulp.dest('public/js'))
@@ -22,19 +22,13 @@ gulp.task('js', function() {
 });
 
 gulp.task('css', function() {
-	return gulp.src('css/*.css')
+	return gulp.src('static/css/*.css')
 		.pipe(gulp.dest('public/css'));
-});
-
-gulp.task('html', function() {
-	return gulp.src('*.html')
-		.pipe(gulp.dest('public'));
 });
 
 gulp.task('watch', function() {
 	gulp.watch('js/*.js', ['lint', 'js']);
 	gulp.watch('css/*.css', ['css']);
-	gulp.watch('*.html', ['html']);
 });
 
-gulp.task('default', ['lint', 'js', 'html', 'css'])
+gulp.task('default', ['lint', 'js', 'css'])
