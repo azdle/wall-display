@@ -45,8 +45,8 @@ function updateWeather(){
 		var resp = JSON.parse(this.responseText);
 
 		weatherDiv.innerHTML =
-			resp.main.temp + ' °C'
-			+ ' - ' + resp.weather[0].main;
+			resp.main.temp + ' °C' +
+			' - ' + resp.weather[0].main;
 	}
 
 	//var url = "http://api.openweathermap.org/data/2.5/forecast?q=minneapolis,us&units=metric";
