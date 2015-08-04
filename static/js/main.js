@@ -50,7 +50,7 @@ function updateWeather(){
 	}
 
 	//var url = "http://api.openweathermap.org/data/2.5/forecast?q=minneapolis,us&units=metric";
-	var url = "//api.openweathermap.org/data/2.5/weather?q=minneapolis,us&units=metric";
+	var url = "http://api.openweathermap.org/data/2.5/weather?q=minneapolis,us&units=metric";
 
 	var oReq = new XMLHttpRequest();
 	oReq.addEventListener('load', reqListener);
