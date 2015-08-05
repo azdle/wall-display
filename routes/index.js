@@ -4,7 +4,16 @@ var http = require('http');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  http.get("http://api.openweathermap.org/data/2.5/weather?q=minneapolis,us&units=metric", function(wres) {
+  var temp_symbol = {
+    "metric": " °C",
+    "imperial": " °F",
+    "kelvin": " K",
+  }
+
+  var q = req.query.q || "minneapolis,us";
+  var units = req.query.units || "metric";
+
+  http.get("http://api.openweathermap.org/data/2.5/weather?q=" + q + ",us&units=" + units, function(wres) {
    var data = "";
    wres.on('data', function(chunk) {
     data += chunk.toString();
@@ -17,7 +26,7 @@ router.get('/', function(req, res, next) {
 
     try{
       weather =
-        resp.main.temp + ' °C' +
+        resp.main.temp + temp_symbol[units] +
         ' - ' + resp.weather[0].main;
 
       weatherIcon = "<img src='/img/w/" +
