@@ -18,3 +18,13 @@ body {
 	display: block;
 	padding-top: 1em;
 }
+
+#weather-icon {
+	font-size: 40pt;
+	display: block;
+	padding-top: 1em;
+}
+
+#weather-icon img {
+	height: 200px;
+}

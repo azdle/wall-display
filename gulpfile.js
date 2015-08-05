@@ -26,9 +26,15 @@ gulp.task('css', function() {
 		.pipe(gulp.dest('public/css'));
 });
 
+gulp.task('img', function() {
+	return gulp.src('static/img/**')
+		.pipe(gulp.dest('public/img'));
+});
+
 gulp.task('watch', function() {
 	gulp.watch('js/*.js', ['lint', 'js']);
 	gulp.watch('css/*.css', ['css']);
+	gulp.watch('img/**', ['img']);
 });
 
-gulp.task('default', ['lint', 'js', 'css'])
+gulp.task('default', ['lint', 'js', 'css', 'img'])
