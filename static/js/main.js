@@ -1,6 +1,8 @@
-var moment = require('moment');
+var moment = require('moment-timezone');
 
 var timeDiv, dateDiv, weatherDiv;
+
+var tz = getQueryParam('tz');
 
 document.addEventListener("DOMContentLoaded", function(event) {
 	timeDiv = document.getElementById('time');
@@ -17,16 +19,26 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 
 function updateTime(){
-	var d = new Date();
-	var dateStr = moment().format('HH:mm');
+	var dateStr;
+	if (tz !== undefined) {
+		dateStr = moment().tz(tz).format('HH:mm');
+	} else {
+		dateStr = moment().format('HH:mm');
+	}
+
 	if (timeDiv.innerHTML != dateStr) {
 		timeDiv.innerHTML = dateStr;
 	}
 }
 
 function updateDate(){
-	var d = new Date();
-	var dateStr = moment().format('MMMM Do YYYY');
+	var dateStr;
+	if (tz !== undefined) {
+		dateStr = moment().tz(tz).format('MMMM Do YYYY');
+	} else {
+		dateStr = moment().format('MMMM Do YYYY');
+	}
+
 	if (dateDiv.innerHTML != dateStr) {
 		dateDiv.innerHTML = dateStr;
 	}
@@ -55,4 +67,23 @@ function updateWeather(){
 	oReq.addEventListener('load', reqListener);
 	oReq.open("get", url, true);
 	oReq.send();
+}
+
+function getQueryParams(qs) {
+    qs = qs.split('+').join(' ');
+
+    var params = {},
+        tokens,
+        re = /[?&]?([^=]+)=([^&]*)/g;
+
+    while (tokens = re.exec(qs)) {
+        params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+    }
+
+    return params;
+}
+
+function getQueryParam(param) {
+    params = getQueryParams(document.location.search);
+    return params[param];
 }
