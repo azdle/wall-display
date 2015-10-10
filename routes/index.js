@@ -20,11 +20,10 @@ router.get('/', function(req, res, next) {
    })
 
    wres.on("end", function() {
-    var resp = JSON.parse(data);
-
-    var weather, weatherIcon;
-
     try{
+      var resp = JSON.parse(data);
+      var weather, weatherIcon;
+
       weather =
         resp.main.temp + temp_symbol[units] +
         ' - ' + resp.weather[0].main;
